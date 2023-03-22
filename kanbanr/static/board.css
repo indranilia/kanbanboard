@@ -1,0 +1,237 @@
+nav {
+    display: flex; 
+    align-items: center; 
+    background-color: #0492c2;
+    border: 1px solid black;
+  }
+  
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Verdana";
+    font-weight: 500;
+  }
+  
+  h1 {
+    font-size: 25px;
+    margin-left: 4%;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    margin-right: 45%;
+  }
+
+  a {
+    color: white;
+    text-decoration: none; 
+  }
+  
+  
+  h2 {
+    font-size: 20px;
+    padding: 5px 20px 5px;
+    color: white;
+    margin-left: 5%;
+  }
+  
+  h3 {
+    color: white;
+    margin-left: 10%;
+  }
+  
+  
+body {
+    background-image: url("pattern.png");
+  }
+
+
+.board__column1 {
+    flex:1;
+    margin-bottom: 80px;
+    width: 22.3%;
+    padding: 20px 35px 20px;
+    background: #f96d6d;
+    float: left;
+    border: 1px solid black;
+    margin-left: 4%;
+    margin-top: 2.5%;
+}
+
+.board__column2 {
+  flex:1;
+  margin-bottom: 80px;
+  width: 22.3%;
+  padding: 20px 35px 20px;
+  background: rgb(243, 173, 98);
+  float: left;
+  border: 1px solid black;
+  margin-left: 4%;
+  margin-top: 2.5%;
+}
+
+.board__column3 {
+  flex:1;
+  margin-bottom: 80px;
+  width: 22.3%;
+  padding: 20px 35px 20px;
+  background: #3ace7f;
+  float: left;
+  border: 1px solid black;
+  margin-left: 4%;
+  margin-top: 2.5%;
+}
+
+.board__column-title {
+    font-family: "Verdana";
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 5%;
+    margin-left: 13%;
+    color: white;
+    font-weight: 600;
+}
+
+.board__column-title3 {
+  font-family: "Verdana";
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 5%;
+  margin-left: 18%;
+  color: white;
+  font-weight: 600;
+}
+
+.board__column-task1 {
+  margin-top: 3%;
+  display: grid;
+  width: 92%;
+  align-items: center;
+  border: 1px solid black;
+  margin-left: 4%;
+  background-color: #f4ccccff;
+}
+
+.board__column-task2 {
+  margin-top: 3%;
+  display: grid;
+  width: 92%;
+  align-items: center;
+  border: 1px solid black;
+  margin-left: 4%;
+  background-color: #fbe7be;
+}
+
+.board__column-task3 {
+  margin-top: 3%;
+  display: grid;
+  width: 92%;
+  align-items: center;
+  border: 1px solid black;
+  margin-left: 4%;
+  background-color: #d9ead3ff;
+}
+
+
+h4 {
+  flex: 1;
+  margin: 5%;
+  border: #000 1px;
+  vertical-align: top;
+  float: left;
+  margin-bottom: 1%;
+}
+
+p {
+  font-family: "Verdana";
+  font-size: 10px;
+  float: right;
+  margin: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+hr {
+    border-top: 1px solid black;
+    border-bottom: #000;
+    margin-bottom: 5%;
+}
+
+.board__item-input {
+  margin-top: 3%;
+  display: grid;
+  width: 92%;
+  align-items: center;
+  border: 2px solid #0492c2;
+  margin-left: 4%;
+  background-color: rgb(189, 227, 251);
+  font-family: 'Verdana';
+}
+
+
+input, select, label {
+  width: 15%;
+  margin-left: 3%;
+  padding: 10px 0 10px;
+  font-size: 14px;
+  color: #0492c2;
+  margin-top: 2%;
+  flex: 1;
+  align-items: center;
+  text-decoration-color: #0492c2;
+  text-emphasis-color: #0492c2;
+}
+
+input[name="title"] {
+  width: 40%;
+}
+
+label {
+  font-size: 20px;
+  margin-left: 5%;
+  width: 100%;
+  color: #0492c2;
+}
+
+input[value = "Add"] {
+  width: 90%;
+    margin-left: 5%;
+    margin-top: 2%;
+    padding: 10px 0 10px;
+    font-size: 12px;
+    color: white;
+    background-color: #0492c2;
+    margin-bottom: 2%;
+}
+.actions {
+  flex: 1;
+}
+
+input[type = "image"] {
+  display: inline;
+  width: 9%;
+  margin-left: 5%;
+  float: left;
+  margin-bottom: 0%;
+  padding: 0%;
+  margin-top: 2%;
+}
+
+form {
+  margin: 0%;
+  align-items: center;
+  padding: 0;
+}
+
+input[value = "DELETE"] {
+  width: 20%;
+  font-size: 11px;
+  border: none;
+  color: red;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-right: 2%;
+  margin-left: 0;
+  background: none;
+  float: right;
+  padding: 0%;
+  display: flex;
+}

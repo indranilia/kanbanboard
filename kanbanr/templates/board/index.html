@@ -1,0 +1,100 @@
+<title>{% block title %}{% endblock %}</title>
+<nav>
+  {% if g.user %}
+  <h1>{{ g.user['username'] }}'s KANBAN BOARD</h1>
+      <h3><a href="{{ url_for('auth.logout') }}">LOG OUT</a></h3>
+    {% else %}
+    <h1>KANBAN BOARD</h1>
+      <h2><a href="{{ url_for('auth.register') }}">REGISTER</a></h2>
+      <h2><a href="{{ url_for('auth.login') }}">LOG IN</a></h2>
+    {% endif %}
+</nav>
+<link rel="stylesheet" href="{{ url_for('static', filename='board.css') }}">
+  <body>
+    <div class = "board__item-input">
+      <form action = "/create" method="post">
+      <label for = "new">NEW TASK</label>
+      <input name="title" value="{{ request.form['title'] }}" required placeholder=" Task description"></input>
+      <input name="deadline" value = "{{ request.form['deadline'] }}" placeholder = " Due YYYY-MM-DD"></input>
+      <select name="type" id="task_type">
+        <option value="not_started"> Not started</option>
+        <option value="in_progress"> In progress</option>
+        <option value="completed"> Completed</option>
+      </select>
+      <input type="submit" value="Add">
+    </form>
+    </div>
+    <div class = "board__column1"> 
+        <div class = "board__column-title">⚠️ NOT STARTED</div>
+        <hr>
+        {% if g.user %}
+          {% for task in not_started %}
+          <div class = "board__column-task1">
+              <h4>{{ task['title'] }}</h4><p>{{ task['deadline'] }}</p>
+              <div class = actions>
+              <form method="POST" action="./update">
+                <input type="hidden" value={{ task['id'] }} name = "task">
+                <input type = "hidden" value="in_progress" name = "updated">
+                <input type="image" src = "static/progress.png" title = "Move to IN PROGRESS">
+              </form>
+                <form method="POST" action="./delete">
+                  <input type="hidden" value={{ task['id'] }} name = "task">
+                  <input type="submit" value="DELETE" onclick="return confirm('Are you sure?');">
+                </form>
+                </div>
+          </div>
+          {% if not loop.last %}
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+      </div>
+      <div class = "board__column2">
+         <div class = "board__column-title">🦾 IN PROGRESS</div>
+         <hr>
+         {% if g.user %}
+         {% for task in in_progress %}
+         <div class = "board__column-task2">
+             <h4>{{ task['title'] }}</h4><p>{{ task['deadline'] }}</p>
+             <div class = actions>
+              <form method="POST" action="./update">
+                <input type="hidden" value={{ task['id'] }} name = "task">
+                <input type ="hidden" value = "completed" name = "updated">
+                <input type="image" src = "static/completed.png" title = "Move to COMPLETED">
+              </form>
+                <form method="POST" action="./delete">
+                  <input type="hidden" value={{ task['id'] }} name = "task">
+                  <input type="submit" value="DELETE" onclick="return confirm('Are you sure?');">
+                </form>
+                </div>
+          </div>
+         {% if not loop.last %}
+         {% endif %}
+         {% endfor %}
+         {% endif %}
+      </div>
+      <div class = "board__column3"> 
+        <div class = "board__column-title3">✓ COMPLETED</div>
+        <hr>
+        {% if g.user %}
+        {% for task in completed %}
+        <div class = "board__column-task3">
+            <h4>{{ task['title'] }}</h4><p>{{ task['deadline'] }}</p>
+            <div class = actions>
+              <form method="POST" action="./update">
+                <input type="hidden" value={{ task['id'] }} name = "task">
+                <input type="hidden" value="in_progress" name = "updated">
+                <input type="image" src = "static/progress.png" title = "Move to IN PROGRESS">
+              </form>
+                <form method="POST" action="./delete">
+                  <input type="hidden" value={{ task['id'] }} name = "task">
+                  <input type="submit" value="DELETE" onclick="return confirm('Are you sure?');">
+                </form>
+                </div>
+        </div>
+        {% if not loop.last %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+  </body>

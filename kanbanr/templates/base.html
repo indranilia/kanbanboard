@@ -1,0 +1,22 @@
+<!doctype html>
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+  <h1>MY KANBAN BOARD</h1>
+    {% if g.user %}
+      <h2><span>{{ g.user['username'] }}</span></h2>
+      <h3><a href="{{ url_for('auth.logout') }}">LOG OUT</h3>
+    {% else %}
+      <h3><a href="{{ url_for('auth.register') }}">REGISTER</h3>
+      <h3><a href="{{ url_for('auth.login') }}">LOG IN</h3>
+    {% endif %}
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
