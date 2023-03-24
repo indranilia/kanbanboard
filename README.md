@@ -9,7 +9,6 @@ Following the instructions, I made a simple Kanban board app with three states:
 2. In progress
 3. Completed
 
-![demo](image.png)
 
 My app has the required functionalities:
 
